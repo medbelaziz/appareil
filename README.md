@@ -1,4 +1,6 @@
-# Open classroom https://www.youtube.com/watch?v=uYhAfgEwNWA&t=7570s 
+# Open classroom 
+https://www.youtube.com/watch?v=uYhAfgEwNWA&t=7570s 
+
 # Appareil
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.
