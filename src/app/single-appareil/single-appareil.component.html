@@ -1,0 +1,12 @@
+<div class="card" style="width: 30rem;">
+    <div class="card-body" [ngClass]="{
+        'list-group-item-success':appareil!.status==='allumé',
+        'list-group-item-danger':appareil!.status==='etteint'
+        }">
+        <h5 class="card-title">{{appareil!.name}}</h5>
+        <h6 class="card-subtitle mb-4 text-muted">{{appareil!.sousTitre}}</h6>
+        <p class="card-text">{{appareil!.description}} </p>
+        <button type="button" class="btn btn-success" routerLink="/appareils">Precedent</button>
+
+    </div>
+</div>

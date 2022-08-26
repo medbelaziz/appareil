@@ -1,0 +1,14 @@
+<div class="row">
+    <a routerLink="/user-edit">Add user</a>
+</div>
+<div class="container">
+    <ul class="list-group" *ngFor="let user of users">
+        <li class="list-group-item">
+            <h2 class="">{{user.firstName}} {{user.lastName}}</h2>
+            <p class=""> {{user.mail}}</p>
+            <p class="" *ngIf="user.hobbies && user.hobbies.length >0">
+                <span class="" *ngFor="let hobby of user.hobbies">{{hobby}} </span>
+            </p>
+        </li>
+    </ul>
+</div>
