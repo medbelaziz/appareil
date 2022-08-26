@@ -1,15 +1,19 @@
-<button type="button" class="btn btn-success"(click)="onAllAllumer()" >OON</button>
-<button type="button" class="btn btn-danger"(click)="onAllEtteindre()" >OOFF</button>
 
-<div  *ngFor="let appareil of appareils;let i = index"  class="card" style="width: 30rem;">
+<div *ngFor="let appareil of appareils;let i = index" class="card" style="width: 30rem;">
     <div class="card-body" [ngClass]="{
         'list-group-item-success':appareil.status==='allumé',
         'list-group-item-danger':appareil.status==='eteint'
-        }">
-        <h5 class="card-title">{{appareil.name}}</h5>
-        <a [routerLink]="[appareil.id]">detail</a>
-        <button type="button" class="btn btn-success" (click)="onAllumer(i)" [disabled]="appareil.status==='allumé'">ON</button>
-        <button type="button" class="btn btn-danger"(click)="onEtteindre(i)" [disabled]="appareil.status==='eteint'">OFF</button>
-        <input type="text" class="forms" [(ngModel)]="appareil.name" >
-    </div>
+    }">
+    <h5 class="card-title">{{appareil.name}}</h5>
+    <a [routerLink]="[appareil.id]">detail</a>
+    <button type="button" class="btn btn-success" (click)="onAllumer(i)"
+    [disabled]="appareil.status==='allumé'">ON</button>
+    <button type="button" class="btn btn-danger" (click)="onEtteindre(i)"
+    [disabled]="appareil.status==='eteint'">OFF</button>
+    <input type="text" class="forms" [(ngModel)]="appareil.name">
 </div>
+</div>
+<button type="button" class="btn btn-success" (click)="onAllAllumer()">OON</button>
+<button type="button" class="btn btn-danger" (click)="onAllEtteindre()">OOFF</button>
+<button type="button" class="btn btn-primary" (click)="onSave()">Save</button>
+<button type="button" class="btn btn-primary" (click)="onFetch()">Fetch</button>

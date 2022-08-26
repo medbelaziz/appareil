@@ -42,4 +42,10 @@ export class AppareilViewComponent implements OnInit, OnDestroy {
   onAllEtteindre() {
     this.appareilService.etteindreAppareils();
   }
+  onSave() {
+    this.appareilService.saveAppareil();
+  }
+  onFetch(){
+    this.appareilService.fetchAppareil();
+  }
 }

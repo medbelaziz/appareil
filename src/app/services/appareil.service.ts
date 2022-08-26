@@ -1,9 +1,11 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 
 
 @Injectable()
 export class AppareilService {
+
     appareilSubject!: Subject<any[]>;
 
     private appareils = [
@@ -29,7 +31,8 @@ export class AppareilService {
             description: "Cuisinière Some quick example text to build on the card title and make up the bulk of the card's content."
         }
     ];
-    constructor() {
+
+    constructor(private httpClient: HttpClient) {
         console.log("-------- constructor ---------- ");
         this.appareilSubject = new Subject();
         console.log("-------- fin constructor ---------- ");
@@ -67,5 +70,27 @@ export class AppareilService {
         appareil.id = this.appareils[this.appareils.length - 1].id + 1;
         this.appareils.push(appareil);
         this.emitAppareilSubject();
+    }
+
+    saveAppareil() {
+        this.httpClient.put('https://appareils-f1759-default-rtdb.europe-west1.firebasedatabase.app/appareils.json', this.appareils)
+            .subscribe(
+                () => console.log('save success !!'),
+                (error) => console.log('error !!' + error),
+                () => console.log('complete !!')
+            )
+    }
+
+    fetchAppareil() {
+        this.httpClient.get<any[]>('https://appareils-f1759-default-rtdb.europe-west1.firebasedatabase.app/appareils.json',)
+            .subscribe(
+                (response) => {
+                    console.log('save success !!')
+                    this.appareils = response;
+                    this.emitAppareilSubject();
+                },
+                (error) => console.log('error !!' + error),
+                () => console.log('complete !!')
+            )
     }
 }
